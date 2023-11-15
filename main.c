@@ -17,16 +17,15 @@ void main(){
     
     srand(time(NULL));//cria semente para aleatoriedade de acordo com o tempo em s
     const short numSorteado = rand() %10 + 1;//sortea entre 1 e 10
-    printf("\n%d\n", numSorteado);//escreve numero sorteado
 
     const char estrela[] = "**************************************************";//constante que diminui o cod
 
     printf("\n%s\n", estrela);
     printf("Jogo da Sorte");
-    printf("\n%d\n", estrela);
+    printf("\n%s\n", estrela);
 
     esper();
-    //cls();
+    cls();
 
     printf("\nEscreva um numero de 1 a 10\n");
     printf("Ganha se acertar o numero que estou pensando\n");
@@ -40,7 +39,7 @@ void main(){
 
         printf("\nTentativa %d\n\n", a);
         scanf("%d", &num);
-        //cls();
+        cls();
 
         if(num == numSorteado){
 
@@ -61,7 +60,7 @@ void main(){
         }
     }
 
-    printf("\n************************");
+    printf("\n************************");//o estrela não está sendo reconhecido aqui.
     printf("\nFIM\n");
-    printf("* %s\n", &estrela);
+    printf("************************\n");
 }
