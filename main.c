@@ -4,28 +4,29 @@
 #include <windows.h>//bliblioteca para funções do console windows, ex: sleep
 
 
+void esper(){//Função para esperar 1 segundo, somente no windows
+    Sleep(1800);
+}
+
+void cls(){//Função para apagar console
+    system("cls");
+}
+
+
 void main(){
     
     srand(time(NULL));//cria semente para aleatoriedade de acordo com o tempo em s
-    const numSorteado = rand() %10 + 1;//sortea entre 1 e 10
+    const short numSorteado = rand() %10 + 1;//sortea entre 1 e 10
     printf("\n%d\n", numSorteado);//escreve numero sorteado
-    
-    void esper(){
-        Sleep(1300);
-    }
 
-    void cls(){
-        system("cls");
-    }
-
-    const char estrela[50] = "**************************************************";//constante que diminui o cod
+    const char estrela[] = "**************************************************";//constante que diminui o cod
 
     printf("\n%s\n", estrela);
     printf("Jogo da Sorte");
-    printf("\n%s\n", estrela);
+    printf("\n%d\n", estrela);
 
     esper();
-    cls();
+    //cls();
 
     printf("\nEscreva um numero de 1 a 10\n");
     printf("Ganha se acertar o numero que estou pensando\n");
@@ -35,9 +36,32 @@ void main(){
     printf("\nVoce tem 10 tentativas");
     printf("\nEscreva um numero\n");
 
-    short a;
-    for(a = 1; a <= 10; a++);
-        scanf("%d", &num);
+    for(short a = 1; a <= 10; a++){
 
-        printf("num");
+        printf("\nTentativa %d\n\n", a);
+        scanf("%d", &num);
+        //cls();
+
+        if(num == numSorteado){
+
+            cls();
+            printf("Parabens voce acertou\n");
+            printf("O numero era %d\n", numSorteado);
+            break;
+
+        }else if(a == 10){
+
+            printf("\n voce errou sua ultima tentativa\n");
+            break;
+        }else{
+
+            printf("\n voce errou");
+            printf("\nTente outra vez\n\n");
+
+        }
+    }
+
+    printf("\n************************");
+    printf("\nFIM\n");
+    printf("* %s\n", &estrela);
 }
